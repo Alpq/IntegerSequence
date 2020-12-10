@@ -15,13 +15,13 @@ public class Range implements IntegerSequence{
   }
   public int length()
   {
-    return this.start - this.end;
+    return Math.abs(this.end - this.start) + 1;
   }
 
   //When current is no longer a valid element in the range, it should return false.
   public boolean hasNext()
   {
-    return (this.current != this.end + 1);
+    return this.current <= this.end;
   }
 
   //@throws NoSuchElementException when hasNext() is false.

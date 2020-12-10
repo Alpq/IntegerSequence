@@ -1,3 +1,4 @@
+// Thank you to Reng Zheng and Steven Lei for helping with Test Cases!
 import java.util.NoSuchElementException;
 public class ArraySequence implements IntegerSequence{
   private int currentIndex;
@@ -12,15 +13,17 @@ public class ArraySequence implements IntegerSequence{
     currentIndex = 0;
     data = new int[other.length()];
     int i = 0;
+    other.reset();
     while (other.hasNext())
     {
       data[i] = other.next();
       i ++;
     }
+    other.reset();
   }
   public boolean hasNext()//does the sequence have more elements?
   {
-    return this.currentIndex >= this.data.length;
+    return this.currentIndex < this.data.length;
   }
   public int next()         //return the current value in the sequence and advances to the next element
   {
